@@ -28,13 +28,19 @@ def create_map_list():
 
 def start():
     while True:
-        flag = redis_session().get('START_INCR')
-        if not flag:
-            log.log('waiting on master to give the go ahead')
-            time.sleep(1)
-            continue
+        # flag = redis_session().get('START_INCR')
+        # if not flag:
+        #     log.info('waiting on master to give the go ahead')
+        #     time.sleep(1)
+        #     continue
         with concurrent.futures.ThreadPoolExecutor(max_workers=config['THREAD_COUNT']) as executor:
             # Submit the tasks to the executor
             result = executor.map(incr_count, create_map_list())
 
-        print("Multithreading with ThreadPoolExecutor example has finished.", result)
+        for ele in result:
+            print("latency-->", ele)
+        log.info("You can do ctrl+c to exit")
+        time.sleep(2)
+
+
+start()
