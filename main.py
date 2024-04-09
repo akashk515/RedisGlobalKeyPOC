@@ -27,6 +27,7 @@ def create_map_list():
 
 
 def start():
+    counter = 0
     while True:
         # flag = redis_session().get('START_INCR')
         # if not flag:
@@ -40,7 +41,9 @@ def start():
         for ele in result:
             if ele > 0.01:
                 log.info("latency-->" + str(ele))
-        time.sleep(2)
+        counter += 1
+        if counter > 1000:
+            time.sleep(0.1)
 
 
 start()
