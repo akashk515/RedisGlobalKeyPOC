@@ -1,0 +1,6 @@
+REDIS_MAIN:
+  HOST: 'redis-main.hp11kc.ng.0001.use1.cache.amazonaws.com'
+  PORT: 6379
+  DB: 0
+REDIS_COUNTER_KEY: 'P1_PQ_MIN1_COUNT'
+THREAD_COUNT: 5
