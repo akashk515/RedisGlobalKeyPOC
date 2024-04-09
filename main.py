@@ -38,7 +38,8 @@ def start():
             result = executor.map(incr_count, create_map_list())
 
         for ele in result:
-            log.info("latency-->" + str(ele))
+            if ele > 0.01:
+                log.info("latency-->" + str(ele))
         time.sleep(2)
 
 
