@@ -38,8 +38,7 @@ def start():
             result = executor.map(incr_count, create_map_list())
 
         for ele in result:
-            log.info("latency-->", ele)
-        log.info("You can do ctrl+c to exit")
+            log.info("latency-->" + str(ele))
         time.sleep(2)
 
 
