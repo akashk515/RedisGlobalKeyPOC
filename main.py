@@ -44,6 +44,7 @@ def start():
         counter += 1
         if counter > 1000:
             time.sleep(0.1)
+            counter = 0
 
 
 start()
