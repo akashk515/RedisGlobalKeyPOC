@@ -10,7 +10,7 @@ def main():
     last_sec = 0
     while True:
         value = redis_session().get(config['REDIS_COUNTER_KEY'])
-        print('per sec diff-->', value - last_sec)
+        print('per sec diff--> ' + str(value - last_sec))
         last_sec = value
         print(value)
         time.sleep(1)
